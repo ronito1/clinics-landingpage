@@ -100,7 +100,7 @@
 
     <!-- Start Banner 
     ============================================= -->
-    <div class="banner-area banner-style-five content-double shadow dark text-light bg-fixed" style="background-image: url(assets/img/banner/5.jpg);">
+    <div class="banner-area banner-style-five content-double shadow dark text-light bg-fixed scale-fade-in" style="background-image: url(assets/img/banner/5.jpg);">
         <div class="box-table">
             <div class="box-cell">
                 <div class="container">
@@ -117,10 +117,10 @@
                                 </div>
                             </div>
                          
-                            <!-- End Banner Left Content -->
+<!-- End Banner Left Content -->
 
-                         
-<div class="form col-lg-5 shadow-light offset-lg-1">
+                        
+<div class="form col-lg-5 shadow-light offset-lg scale-fade-in">
     <div class="form-info">
         <h2>Let’s Connect</h2> <!-- Updated heading -->
 
@@ -225,7 +225,7 @@
 
     <!-- Start About 
     ============================================= -->
-    <div id="about" class="about-area default-padding">
+    <div id="about" class="about-area default-padding scale-fade-in">
         <div class="container">
             <div class="row aligm-center">
                 <div class="col-lg-5 promo-video">
@@ -257,7 +257,7 @@
 
     <!-- Start We Offer 
     ============================================= -->
-    <div class="we-offer-area text-center bg-gray default-padding bottom-less">
+    <div class="we-offer-area text-center bg-gray default-padding bottom-les scale-fade-in">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -337,7 +337,7 @@
     <!-- Start Website Designs Section -->
     <!-- Start Features 
     ============================================= -->
-    <div id="features" class="features-area cell-items">
+    <div id="features" class="features-area cell-ite scale-fade-in">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -547,7 +547,7 @@
 
     <!-- Start Testimonials 
     ============================================= -->
-    <div class="testimonials-area bg-dark text-light default-padding">
+    <div class="testimonials-area bg-dark text-light default-padding scale-fade-in">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -618,7 +618,7 @@
 
 <!-- Start Banner 
     ============================================= -->
-    <div class="banner-area banner-style-five content-double shadow dark text-light bg-fixed" style="background-image: url(assets/img/banner/5.jpg);">
+    <div class="banner-area banner-style-five content-double shadow dark text-light bg-fixed scale-fade-in" style="background-image: url(assets/img/banner/5.jpg);">
         <div class="box-table">
             <div class="box-cell">
                 <div class="container">
@@ -726,7 +726,7 @@
 
     <!-- Start Overview 
     ============================================= -->
-    <div id="overview" class="work-list-area include-arrow default-padding">
+    <div id="overview" class="work-list-area include-arrow default-paddi scale-fade-in">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -821,7 +821,7 @@
 
     <!-- Start Pricing Area
     ============================================= -->
-    <div id="pricing" class="pricing-area bg-gray default-padding-top">
+    <div id="pricing" class="pricing-area bg-gray default-padding scale-fade-in">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -911,7 +911,7 @@
 
     <!-- Start Signup 
     ============================================= -->
-    <div class="signup-area bg-fixed shadow theme text-light default-padding text-center" style="background-image: url(assets/img/banner/4.jpg);">
+    <div class="signup-area bg-fixed shadow theme text-light default-padding text-center scale-fade-in" style="background-image: url(assets/img/banner/4.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
@@ -928,7 +928,7 @@
 
     <!-- Start Contact Area  
     ============================================= -->
-    <div id="contact" class="contact-us-area default-padding">
+    <div id="contact" class="contact-us-area default-padding scale-fade-in">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -1028,7 +1028,7 @@
 
     <!-- End Contact -->
     <!-- Start Footer Bottom -->
-    <div id="footer" class="footer-area">
+    <div id="footer" class="foot scale-fade-in">
 
     <div class="footer-bottom">
             <div class="row">
@@ -1056,6 +1056,26 @@
    </div>
 </footer>
 <!-- End Footer -->
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const elements = document.querySelectorAll('.scale-fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing once visible
+            }
+        });
+    });
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+});
+</script>
 
     <!-- jQuery Frameworks
     ============================================= -->

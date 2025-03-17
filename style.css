@@ -4816,3 +4816,29 @@ h2.title {
   position: relative; /* Allows for positioning adjustments */
   top: -5px; /* Move the logo up slightly */
 }
+
+
+
+/* Fade-in effect */
+/* Scale-up and fade-in effect */
+.scale-fade-in {
+  opacity: 0;
+  transform: scale(0.9); /* Start slightly smaller */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.scale-fade-in.visible {
+  opacity: 1; /* Fully visible */
+  transform: scale(1); /* Scale to original size */
+}
+/* Slide-in effect */
+.slide-in {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
