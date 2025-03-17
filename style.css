@@ -4807,3 +4807,12 @@ footer .f-item .icon {
 h2.title {
   color: black; /* Set text color to black */
 }
+
+.footer-logo {
+  height: 30px; /* Adjust height as needed */
+  margin-left: 17px; /* Space between logo and text */
+  margin-right: 17px; /* Space between logo and text */
+  vertical-align: middle; /* Aligns the logo with the text */
+  position: relative; /* Allows for positioning adjustments */
+  top: -5px; /* Move the logo up slightly */
+}
