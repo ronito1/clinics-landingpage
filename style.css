@@ -4352,9 +4352,6 @@ footer .f-item.link li a:hover {
 
 footer .footer-bottom {
   background: var(--dark);
-  margin-top: 120px;
-  padding-bottom: 20px;
-  padding-top: 20px;
 }
 
 footer .footer-bottom p {
@@ -4743,7 +4740,7 @@ footer.demo .copyright {
 
 /* Footer Styles */
 footer {
-  background-color: #343a40; /* Dark background color */
+   /* Dark background color */
   color: white; /* Change text color to white for better contrast */
   padding: 40px 0; /* Adjust padding as needed */
 }
@@ -4760,7 +4757,6 @@ footer .f-item .icon {
 }
 
 .footer-bottom {
-  border-top: 1px solid #ddd; /* Optional: Add a top border */
   padding-top: 20px; /* Space above footer bottom */
 }
 
