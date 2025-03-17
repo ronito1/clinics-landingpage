@@ -353,8 +353,8 @@
             <div class="design-item">
                 <img src="assets/img/breadcrum/3.png" alt="Website Designing for Astaling" />
                 <a class="elementor-button" href="#" data-url="https://shathayu.com/">Visit Website</a>
-                                    </div>
-            
+            </div>
+
             <div class="design-item">
                 <img src="assets/img/breadcrum/1.png" alt="Website Designing for SCOPAF" />
                 <a class="elementor-button" href="#" data-url="https://mumbaiwellnesscentre.com/">Visit Website</a>
@@ -462,33 +462,77 @@
         </div>
     </div>
 
-    <script>
+<style>
+    .design-item {
+        position: relative; /* Position relative for absolute positioning of iframe */
+        overflow: hidden; /* Hide overflow to keep the design clean */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    }
+
+    .design-item:hover {
+        transform: scale(1.05); /* Slightly enlarge the image */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    }
+
+    .preview-iframe {
+        position: absolute; /* Position absolute to overlay on the image */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none; /* Remove border */
+        display: none; /* Initially hidden */
+        
+    }
+</style>
+
+<script>
     document.addEventListener("DOMContentLoaded", function() {
         const buttons = document.querySelectorAll('.elementor-button');
-        const modal = document.getElementById("websitePreviewModal");
-        const iframe = document.getElementById("websitePreview");
         const closeButton = document.querySelector(".close-button");
         const spinner = document.querySelector(".loading-spinner");
+        const designItems = document.querySelectorAll('.design-item');
 
         buttons.forEach(button => {
             button.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent the default action
                 const url = this.getAttribute('data-url'); // Get the URL from the data attribute
+                const modal = document.getElementById("websitePreviewModal");
+                const iframe = document.getElementById("websitePreview");
                 iframe.src = url; // Set the iframe source to the URL
                 spinner.style.display = "block"; // Show the spinner
                 modal.style.display = "block"; // Show the modal
             });
         });
 
+        designItems.forEach(item => {
+            const iframe = item.querySelector('.preview-iframe');
+            const url = item.querySelector('a').getAttribute('data-url'); // Get the URL from the data attribute
+
+            item.addEventListener('mouseenter', function() {
+                iframe.src = url; // Set the iframe source to the URL
+                iframe.style.display = "block"; // Show the iframe
+            });
+
+            item.addEventListener('mouseleave', function() {
+                iframe.style.display = "none"; // Hide the iframe
+                iframe.src = ""; // Clear the iframe source
+            });
+        });
+
         closeButton.addEventListener('click', function() {
+            const modal = document.getElementById("websitePreviewModal");
             modal.style.display = "none"; // Hide the modal
+            const iframe = document.getElementById("websitePreview");
             iframe.src = ""; // Clear the iframe source
             spinner.style.display = "none"; // Hide the spinner
         });
 
         window.addEventListener('click', function(event) {
+            const modal = document.getElementById("websitePreviewModal");
             if (event.target === modal) {
                 modal.style.display = "none"; // Hide the modal if clicked outside
+                const iframe = document.getElementById("websitePreview");
                 iframe.src = ""; // Clear the iframe source
                 spinner.style.display = "none"; // Hide the spinner
             }
@@ -498,8 +542,7 @@
     function hideSpinner() {
         document.querySelector(".loading-spinner").style.display = "none"; // Hide the spinner when iframe loads
     }
-    </script>
-
+</script>
   
 
     <!-- Start Testimonials 
@@ -582,39 +625,95 @@
                     <div class="row justify-content-center"> <!-- Added justify-content-center for centering -->
                         <div class="form col-lg-5 shadow-light"> <!-- Removed offset for centering -->
                             <div class="form-info">
-                                <h2>Sign up today and receive <span>30 days</span> FREE trial.</h2>
+                                <h2>Contact Us Now <span>& get</span> Digital</h2>
                                 <form action="#">
                                     <div class="col-lg-12">
                                         <div class="row">
                                             <div class="form-group">
-                                                <input class="form-control" placeholder="Name*" type="text">
-        </div>
-    </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <input class="form-control" placeholder="Email*" type="email">
+                                                <input class="form-control" placeholder="Name *" type="text">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="row">
                                             <div class="form-group">
-                                                <input class="form-control" placeholder="Password*" type="text">
+                                                <input class="form-control" placeholder="Email *" type="email">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="row">
-                                            <button type="submit">
-                                                Register for free
-                                            </button>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Phone Number *" type="tel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <select class="form-control transparent-select">
+                                                    <option value="" disabled selected>Request for Services?*</option>
+                                                    <option value="Web design & Development">Web design & Development</option>
+                                                    <option value="Mobile App Development">Mobile App Development</option>
+                                                    <option value="Ecommerce Development">Ecommerce Development</option>
+                                                    <option value="Digital Marketing">Digital Marketing</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <textarea class="form-control" placeholder="Enter Your Requirement *" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
+                        
+                        <style>
+                        .form {
+                            position: relative;
+                            margin-top: 100px; /* Adjust this value as needed */
+                            padding: 20px;
+                            border-radius: 8px;
+                        }
+                        
+                        .navbar {
+                            position: fixed;
+                            width: 100%;
+                            z-index: 1000; /* Ensure header stays above */
+                        }
+                        
+                        .transparent-select {
+                            background: transparent;
+                            border: 1px solid #ccc;
+                            color: white;
+                            appearance: none;
+                            padding: 10px;
+                            font-size: 16px;
+                            width: 100%;
+                        }
+                        
+                        .transparent-select:focus {
+                            outline: none;
+                            border-color: #007bff;
+                        }
+                        
+                        /* Ensure dropdown text is visible */
+                        .transparent-select option {
+                            color: black;
+                            background: #fff;
+                        }
+                        
+                        </style>
+                        
                    
                     </div>
                 </div>
@@ -622,12 +721,6 @@
         </div>
     </div>
     <!-- End Banner -->
-
-
-
-
-
-
 
 
 
